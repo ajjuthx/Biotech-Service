@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------- */
+/* URVI'S BIOMEDICAL SERVICES — DESIGN TOKENS                            */
+/* Healthcare-grade palette: clean white + trust blue + medical teal     */
+/* ---------------------------------------------------------------------- */
+:root {
+  /* Brand — medical trust blue as primary, teal as secondary */
+  --color-primary: #1a4f8a;       /* deep medical trust blue */
+  --color-primary-dark: #0f3260;  /* darker navy for text/hover */
+  --color-primary-light: #2563a8; /* lighter blue for active states */
+  --color-secondary: #0e8c7e;     /* medical teal */
+  --color-secondary-light: #e6f4f2; /* pale teal wash */
+  --color-accent: #e05c1a;        /* warm red-orange — emergency/urgency CTAs only */
+
+  /* Neutrals */
+  --color-background: #f4f7fb;    /* very light blue-grey — clinical clean */
+  --color-surface: #ffffff;
+  --color-border: #dde4ed;
+  --color-border-strong: #b8c7d9;
+  --color-text: #0d1f35;          /* deep navy text */
+  --color-text-muted: #435571;
+  --color-text-subtle: #7a8fa8;
+
+  /* Status */
+  --color-success: #0e8c7e;
+  --color-warning: #b8720a;
+  --color-danger: #c0281e;
+  --color-info: #1a4f8a;
+
+  /* Typography */
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Radii — clean, modern healthcare feel */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --shadow-sm: 0 1px 3px 0 rgba(26, 79, 138, 0.08);
+  --shadow-md: 0 4px 16px -4px rgba(26, 79, 138, 0.14);
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-primary-light: var(--color-primary-light);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-accent: var(--color-accent);
+  --color-background: var(--color-background);
+  --color-surface: var(--color-surface);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-subtle: var(--color-text-subtle);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-info: var(--color-info);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-primary-dark);
+  letter-spacing: -0.01em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.lattice-rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-border-strong) 0%,
+    var(--color-border) 60%,
+    transparent 100%
+  );
+}
+
+/* Emergency/urgent CTA — red-orange only for breakdown button */
+.btn-emergency {
+  background: var(--color-accent);
+  color: white;
+  font-weight: 600;
+}
+.btn-emergency:hover {
+  background: #c44f14;
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-rise {
+  animation: hero-rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: white;
+  padding: 10px 16px 10px 12px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.whatsapp-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
+}
