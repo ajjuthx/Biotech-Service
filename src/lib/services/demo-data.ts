@@ -1,10 +1,12 @@
 /**
- * URVI'S BIOMEDICAL SERVICES — Demo / seed-shaped data
+ * URVI'S BIOMEDICAL SERVICES — Equipment & Service Data
+ * Serving Pune & Chhatrapati Sambhajinagar
  */
 import {
   Wrench, FileCheck2, ShieldCheck, Settings, Gauge,
   Stethoscope, Monitor, Heart, Wind, Zap, Thermometer,
-  FlaskConical, Baby, Microscope, Truck, type LucideIcon,
+  FlaskConical, Baby, Microscope, Activity,
+  type LucideIcon,
 } from "lucide-react";
 
 export interface DemoCategory {
@@ -37,21 +39,13 @@ export const DEMO_CATEGORIES: DemoCategory[] = [
   { slug: "biomedical-consultancy",     name: "Biomedical Consultancy",       icon: Stethoscope, description: "Equipment evaluation, hospital planning and maintenance strategy." },
 ];
 
-const PROCESS_STEPS_BREAKDOWN = [
-  { title: "Log Breakdown Call",      description: "Contact us by phone, WhatsApp, or our service request form. We acknowledge all breakdown requests promptly." },
-  { title: "Rapid Response",          description: "Our biomedical engineer is dispatched to your facility as quickly as possible." },
-  { title: "Fault Diagnosis",         description: "We identify the root cause of the equipment failure using systematic diagnostic procedures." },
-  { title: "Repair & Replacement",    description: "We carry out the repair, replacing components where necessary to restore full functionality." },
-  { title: "Performance Verification",description: "Equipment is tested and verified before being returned to clinical use." },
+const PROCESS_DEFAULT = [
+  { title: "Request Service",          description: "WhatsApp or call us — describe the equipment and the fault or requirement." },
+  { title: "Rapid Response",           description: "Our biomedical engineer is dispatched to your facility." },
+  { title: "Diagnosis & Service",      description: "Systematic fault diagnosis, repair or PM carried out as required." },
+  { title: "Performance Verification", description: "Equipment tested and verified before being returned to clinical use." },
+  { title: "Service Report",           description: "Written service report provided and countersigned by your facility." },
 ];
-
-
-const FAQS_BREAKDOWN = [
-  { question: "How quickly can you respond to a breakdown?", answer: "Response time depends on your location and contract type. Please contact us for specific response commitments for your facility." },
-  { question: "Do you carry spare parts?", answer: "We maintain a stock of common spare parts and consumables for frequently serviced equipment. For specialised components, we source them as quickly as possible." },
-  { question: "What equipment do you service?", answer: "We service a wide range of medical equipment including ventilators, patient monitors, infusion pumps, defibrillators, anaesthesia machines, ECG machines, and more." },
-];
-
 
 export const DEMO_SERVICES: DemoService[] = [
   {
@@ -59,12 +53,15 @@ export const DEMO_SERVICES: DemoService[] = [
     name: "Breakdown & Repair Services",
     categorySlug: "breakdown-repair",
     categoryName: "Breakdown & Repair",
-    shortDescription: "Emergency breakdown support, fault diagnosis, repair and performance verification for all medical equipment.",
-    fullDescription: "When medical equipment fails, it directly impacts patient care. Our breakdown and repair service provides prompt technical support to get your equipment back in operation as quickly as possible. We handle emergency fault diagnosis, component-level repair, and full performance verification before returning equipment to clinical service.",
-    applications: ["ICU", "Operating Theatre", "Emergency Department", "General Wards", "Diagnostic Centres", "Clinics"],
-    capabilities: ["Emergency breakdown response", "Systematic fault diagnosis", "Component repair and replacement", "Performance and safety verification", "Service documentation"],
-    processSteps: PROCESS_STEPS_BREAKDOWN,
-    faqs: FAQS_BREAKDOWN,
+    shortDescription: "Emergency breakdown support, fault diagnosis, repair and performance verification for all medical equipment in Pune and Chhatrapati Sambhajinagar.",
+    fullDescription: "When medical equipment fails, it directly impacts patient care. Our breakdown and repair service provides prompt technical support to restore your equipment to operation as quickly as possible — across ICU, OT, NICU, PICU, Emergency and Diagnostic departments.",
+    applications: ["ICU", "Operating Theatre", "NICU", "PICU", "Emergency Department", "Diagnostic Centres", "General Wards"],
+    capabilities: ["Emergency breakdown response", "Systematic fault diagnosis", "Component repair and replacement", "Performance and safety verification", "Written service report"],
+    processSteps: PROCESS_DEFAULT,
+    faqs: [
+      { question: "How quickly can you respond to a breakdown?", answer: "We aim to respond as quickly as possible. For urgent ICU or OT breakdowns please call or WhatsApp directly so we can prioritise your request. We serve Pune and Chhatrapati Sambhajinagar." },
+      { question: "Do you carry spare parts?", answer: "We carry common spare parts and consumables for frequently serviced equipment. Specialised parts are sourced as quickly as possible." },
+    ],
     icon: Wrench,
     isFeatured: true,
   },
@@ -74,19 +71,13 @@ export const DEMO_SERVICES: DemoService[] = [
     categorySlug: "preventive-maintenance",
     categoryName: "Preventive Maintenance",
     shortDescription: "Scheduled inspection, functional testing, safety checks and performance assessment to prevent equipment failures before they occur.",
-    fullDescription: "Regular preventive maintenance is the most effective way to reduce unexpected equipment breakdowns and extend equipment lifespan. Our structured PM programme covers detailed inspection, cleaning, functional testing, electrical safety checks, and performance assessment, with a written maintenance report after each visit.",
-    applications: ["Ventilators", "Patient Monitors", "Infusion Pumps", "Defibrillators", "Anaesthesia Machines", "All Medical Equipment"],
+    fullDescription: "Regular preventive maintenance reduces unexpected equipment breakdowns, extends equipment lifespan, and ensures equipment performs to specification. Our PM programme covers all ICU, OT, NICU, PICU, Emergency and Diagnostic equipment.",
+    applications: ["ICU", "Operating Theatre", "NICU", "PICU", "Emergency", "CSSD", "Diagnostic"],
     capabilities: ["Scheduled inspection and cleaning", "Functional and performance testing", "Electrical safety checks", "Filter and consumable replacement", "Written PM report"],
-    processSteps: [
-      { title: "Schedule PM Visit", description: "PM visits are planned in advance to minimise disruption to clinical operations." },
-      { title: "Equipment Inspection", description: "Detailed visual and physical inspection of all equipment components." },
-      { title: "Functional Testing", description: "Equipment is tested against manufacturer specifications and clinical performance requirements." },
-      { title: "Safety Checks", description: "Electrical safety and performance checks are carried out as per applicable standards." },
-      { title: "PM Report & Sign-off", description: "A written PM report is provided and countersigned by the facility's biomedical or engineering department." },
-    ],
+    processSteps: PROCESS_DEFAULT,
     faqs: [
-      { question: "How often should preventive maintenance be carried out?", answer: "Frequency depends on equipment type, manufacturer recommendations, and usage intensity. Critical ICU equipment typically requires more frequent PM than general ward equipment." },
-      { question: "What documentation do you provide?", answer: "We provide a written PM report for every visit, detailing checks performed, findings, components replaced, and equipment status at completion." },
+      { question: "How often should PM be carried out?", answer: "Critical ICU and OT equipment typically requires more frequent PM. We advise on recommended intervals for your specific equipment." },
+      { question: "Do you provide PM reports?", answer: "Yes — a written PM report is provided after every visit detailing checks performed, findings, and equipment status." },
     ],
     icon: ShieldCheck,
     isFeatured: true,
@@ -96,19 +87,13 @@ export const DEMO_SERVICES: DemoService[] = [
     name: "Installation & Commissioning",
     categorySlug: "installation-commissioning",
     categoryName: "Installation & Commissioning",
-    shortDescription: "Professional medical equipment installation, site readiness assessment, commissioning, and user assistance.",
-    fullDescription: "Correct installation and commissioning of medical equipment is essential for safe and effective clinical use. We provide professional installation services including site readiness assessment, equipment installation, commissioning, functional testing, and user assistance to ensure equipment is ready for clinical deployment.",
-    applications: ["New Hospital Departments", "ICU Setup", "OT Equipment", "Ward Equipment", "Diagnostic Equipment", "Equipment Upgrades"],
+    shortDescription: "Professional medical equipment installation, site readiness assessment, commissioning, functional testing and user assistance.",
+    fullDescription: "Correct installation and commissioning of medical equipment is essential for safe clinical use. We carry out professional installation for hospitals and healthcare facilities across Pune and Chhatrapati Sambhajinagar.",
+    applications: ["New Hospital Departments", "ICU Setup", "OT Equipment", "NICU Setup", "Ward Equipment", "Diagnostic Equipment"],
     capabilities: ["Site readiness assessment", "Equipment installation and setup", "Commissioning and functional testing", "Integration with existing systems", "User assistance and handover"],
-    processSteps: [
-      { title: "Site Assessment", description: "We assess the installation site for space, power, gas supply, and environmental requirements." },
-      { title: "Equipment Delivery Coordination", description: "We coordinate with suppliers and your facility team for equipment delivery and unpacking." },
-      { title: "Installation", description: "Professional installation is carried out as per manufacturer guidelines and site requirements." },
-      { title: "Commissioning & Testing", description: "Equipment is commissioned and fully tested before clinical handover." },
-      { title: "User Assistance & Handover", description: "We provide basic user assistance and complete the formal handover with documentation." },
-    ],
+    processSteps: PROCESS_DEFAULT,
     faqs: [
-      { question: "Do you coordinate with equipment suppliers?", answer: "Yes, we can coordinate with equipment suppliers and your facility's engineering or estate team throughout the installation process." },
+      { question: "Do you coordinate with equipment suppliers?", answer: "Yes, we coordinate with suppliers and your engineering team throughout the installation process." },
     ],
     icon: Settings,
     isFeatured: false,
@@ -118,19 +103,13 @@ export const DEMO_SERVICES: DemoService[] = [
     name: "Calibration & Testing",
     categorySlug: "calibration-testing",
     categoryName: "Calibration & Testing",
-    shortDescription: "Equipment performance checks, electrical safety testing, accuracy verification and calibration coordination.",
-    fullDescription: "Accurate, well-calibrated medical equipment is critical for patient safety and reliable clinical results. We carry out equipment performance checks, electrical safety testing, and accuracy verification, and can coordinate calibration documentation requirements for accreditation and regulatory purposes.",
-    applications: ["Patient Monitors", "Infusion Pumps", "Syringe Pumps", "Defibrillators", "Blood Pressure Equipment", "Weighing Scales"],
-    capabilities: ["Performance checks against specifications", "Electrical safety testing", "Accuracy verification", "Calibration coordination and documentation", "Certificates and records"],
-    processSteps: [
-      { title: "Equipment Identification", description: "We identify the equipment, applicable standards, and calibration requirements." },
-      { title: "Performance Testing", description: "Equipment is tested against manufacturer specifications and applicable performance standards." },
-      { title: "Electrical Safety Testing", description: "Earth continuity, insulation, and leakage current checks are performed." },
-      { title: "Accuracy Verification", description: "Measurement accuracy is verified using reference standards or calibrated test equipment." },
-      { title: "Certificate & Documentation", description: "A calibration certificate or performance test report is issued for each item tested." },
-    ],
+    shortDescription: "Equipment performance checks, electrical safety testing, accuracy verification and calibration documentation.",
+    fullDescription: "Accurate, well-calibrated medical equipment is critical for patient safety. We carry out performance checks, electrical safety testing, and accuracy verification for all equipment types across Pune and Chhatrapati Sambhajinagar.",
+    applications: ["Patient Monitors", "Infusion & Syringe Pumps", "Defibrillators", "ECG & Diagnostic Equipment", "Weighing Scales"],
+    capabilities: ["Performance checks against specifications", "Electrical safety testing", "Accuracy verification", "Calibration documentation", "Test certificates and records"],
+    processSteps: PROCESS_DEFAULT,
     faqs: [
-      { question: "Do you issue calibration certificates?", answer: "We issue performance test reports and calibration documentation. For NABL-traceable calibration, we can coordinate with accredited calibration laboratories." },
+      { question: "Do you issue calibration certificates?", answer: "We issue performance test reports and service documentation. For NABL-traceable calibration we can coordinate with accredited laboratories." },
     ],
     icon: Gauge,
     isFeatured: false,
@@ -140,18 +119,13 @@ export const DEMO_SERVICES: DemoService[] = [
     name: "Biomedical Consultancy",
     categorySlug: "biomedical-consultancy",
     categoryName: "Biomedical Consultancy",
-    shortDescription: "Equipment evaluation, hospital equipment planning, maintenance strategy, and inventory management support.",
-    fullDescription: "Planning a new department, upgrading equipment, or looking to improve your equipment maintenance programme? Our biomedical consultancy service supports hospitals and healthcare facilities with equipment evaluation, procurement advisory, maintenance planning, and equipment inventory management.",
-    applications: ["New Hospital Projects", "Department Upgrades", "Equipment Procurement Planning", "Maintenance Programme Development", "Equipment Inventory Management"],
-    capabilities: ["Medical equipment evaluation", "Procurement advisory support", "Maintenance programme planning", "Equipment inventory management", "Service management support"],
-    processSteps: [
-      { title: "Initial Consultation", description: "We understand your facility's requirements, existing equipment, and consultancy objectives." },
-      { title: "Assessment & Evaluation", description: "We assess relevant equipment, departments, or maintenance processes as required." },
-      { title: "Report & Recommendations", description: "We provide a structured report with clear findings and practical recommendations." },
-      { title: "Implementation Support", description: "Where required, we can provide ongoing support during implementation of recommendations." },
-    ],
+    shortDescription: "Equipment evaluation, hospital equipment planning, maintenance strategy and inventory management support.",
+    fullDescription: "Planning a new department or improving your equipment maintenance programme? Our biomedical consultancy supports hospitals and healthcare facilities in Pune and Chhatrapati Sambhajinagar with equipment evaluation, procurement advisory and maintenance planning.",
+    applications: ["New Hospital Projects", "Department Upgrades", "Equipment Procurement", "Maintenance Programme Development", "Equipment Inventory Management"],
+    capabilities: ["Medical equipment evaluation", "Procurement advisory", "Maintenance programme planning", "Equipment inventory management", "Service management support"],
+    processSteps: PROCESS_DEFAULT,
     faqs: [
-      { question: "Can you help us plan a new ICU or OT?", answer: "Yes. We can provide equipment planning support for new departments, including equipment specifications, layout considerations, and service requirements." },
+      { question: "Can you help us plan a new ICU or OT?", answer: "Yes — we provide equipment planning support for new departments including specifications, layout considerations and service requirements." },
     ],
     icon: Stethoscope,
     isFeatured: false,
@@ -165,52 +139,86 @@ export function getDemoServiceBySlug(slug: string): DemoService | undefined {
   return DEMO_SERVICES.find((s) => s.slug === slug);
 }
 
-// Equipment categories for ICU/OT pages
-export const ICU_EQUIPMENT = [
-  { icon: Wind,        name: "Ventilators",               desc: "Invasive and non-invasive ventilation systems maintenance and repair." },
-  { icon: Monitor,     name: "Multiparameter Monitors",   desc: "Patient monitoring systems — ECG, SpO₂, NIBP, temperature, EtCO₂." },
-  { icon: FlaskConical,name: "Syringe Pumps",             desc: "Precision syringe pump calibration, repair and preventive maintenance." },
-  { icon: Truck,       name: "Infusion Pumps",            desc: "IV infusion pump service, calibration and alarm verification." },
-  { icon: Heart,       name: "Defibrillators",            desc: "Defibrillator energy output testing, battery checks and servicing." },
-  { icon: Zap,         name: "ECG Machines",              desc: "ECG machine calibration, lead testing and performance verification." },
-  { icon: Wind,        name: "Suction Machines",          desc: "Suction unit service, vacuum testing and consumable replacement." },
-  { icon: Thermometer, name: "CPAP / BiPAP",              desc: "CPAP and BiPAP therapy device maintenance and pressure calibration." },
-  { icon: Stethoscope, name: "Oxygen Concentrators",      desc: "Oxygen concentrator service, output testing and filter maintenance." },
-  { icon: Thermometer, name: "Patient Warming Equipment", desc: "Warming blanket and fluid warmer maintenance and temperature verification." },
+// ─────────────────────────────────────────────────────────────────────────────
+// EQUIPMENT LISTS  — exact machine names as specified
+// ─────────────────────────────────────────────────────────────────────────────
+
+export interface EquipmentItem {
+  icon: LucideIcon;
+  name: string;
+  desc: string;
+}
+
+export const ICU_EQUIPMENT: EquipmentItem[] = [
+  { icon: Wind,        name: "Ventilator",      desc: "Invasive and non-invasive ventilator service, calibration and breakdown repair." },
+  { icon: Monitor,     name: "Monitor",         desc: "Multiparameter patient monitor — ECG, SpO₂, NIBP, temperature, EtCO₂ servicing." },
+  { icon: Heart,       name: "Defibrillator",   desc: "Defibrillator energy output testing, battery checks and preventive maintenance." },
+  { icon: FlaskConical,name: "Syringe Pump",    desc: "Precision syringe pump calibration, alarm verification and repair." },
+  { icon: Activity,    name: "Infusion Pump",   desc: "IV infusion pump service, flow accuracy calibration and alarm testing." },
+  { icon: Microscope,  name: "ABG",             desc: "Arterial Blood Gas analyser maintenance, calibration and consumable support." },
+  { icon: Wind,        name: "HFNC",            desc: "High Flow Nasal Cannula therapy device service and flow/temperature calibration." },
 ];
 
-export const OT_EQUIPMENT = [
-  { icon: Wind,        name: "Anaesthesia Machines",      desc: "Full anaesthesia workstation service, gas delivery and alarm checks." },
-  { icon: Settings,    name: "OT Tables",                 desc: "Operating table hydraulic and electrical system maintenance." },
-  { icon: Zap,         name: "Electrosurgical Units",     desc: "ESU output testing, patient return electrode monitoring and servicing." },
-  { icon: Stethoscope, name: "OT Lights",                 desc: "Surgical light maintenance, alignment and lamp replacement." },
-  { icon: Monitor,     name: "Patient Monitors",          desc: "OT-grade multiparameter monitor service and calibration." },
-  { icon: Wind,        name: "Surgical Suction",          desc: "Surgical suction unit service, trap maintenance and vacuum testing." },
-  { icon: FlaskConical,name: "Medical Gas Equipment",     desc: "Medical gas outlet, flowmeter and regulator testing and maintenance." },
-  { icon: Baby,        name: "Warming & Recovery Equip.", desc: "Warming cabinets and post-op recovery equipment service." },
+export const NICU_EQUIPMENT: EquipmentItem[] = [
+  { icon: Baby,        name: "Incubator",           desc: "Infant incubator temperature calibration, humidity control and alarm testing." },
+  { icon: Thermometer, name: "Radiant Warmer",      desc: "Radiant warmer servo-control calibration and electrical safety checks." },
+  { icon: Wind,        name: "Neonatal Ventilator", desc: "Neonatal ventilator service — volume, pressure and flow calibration." },
+  { icon: Wind,        name: "CPAP",                desc: "Neonatal CPAP device service and pressure calibration." },
+  { icon: Zap,         name: "Phototherapy",        desc: "Phototherapy unit irradiance measurement and lamp condition assessment." },
+  { icon: Monitor,     name: "Neonatal Monitor",    desc: "Neonatal multiparameter monitor service and SpO₂ probe calibration." },
 ];
 
-export const DEPT_EQUIPMENT: Record<string, { icon: LucideIcon; name: string; desc: string }[]> = {
-  emergency: [
-    { icon: Heart,       name: "Defibrillators / AEDs",  desc: "Energy output testing, AED readiness checks and battery maintenance." },
-    { icon: Zap,         name: "ECG Machines",            desc: "12-lead ECG machine service and calibration." },
-    { icon: Monitor,     name: "Patient Monitors",        desc: "Emergency department monitor service and alarm verification." },
-    { icon: Wind,        name: "Suction Equipment",       desc: "Emergency suction unit service and vacuum testing." },
-  ],
-  nicu: [
-    { icon: Baby,        name: "Incubators",              desc: "Infant incubator temperature calibration, humidity control and alarm testing." },
-    { icon: Thermometer, name: "Radiant Warmers",         desc: "Radiant warmer servo-control calibration and safety checks." },
-    { icon: Stethoscope, name: "Phototherapy Units",      desc: "Phototherapy irradiance measurement and lamp condition assessment." },
-    { icon: Monitor,     name: "Neonatal Monitors",       desc: "Neonatal multiparameter monitor service and SpO₂ calibration." },
-  ],
-  diagnostic: [
-    { icon: Zap,         name: "ECG Machines",            desc: "ECG machine calibration and performance verification." },
-    { icon: Microscope,  name: "Ultrasound Systems",      desc: "Ultrasound transducer testing and image quality assessment." },
-    { icon: Gauge,       name: "Laboratory Equipment",    desc: "Centrifuge calibration, analyser performance checks." },
-  ],
-  cssd: [
-    { icon: Wind,        name: "Autoclaves",              desc: "Autoclave validation, cycle testing, safety valve and seal inspection." },
-    { icon: Settings,    name: "Sterilizers",             desc: "Low-temperature and dry-heat sterilizer performance verification." },
-    { icon: FlaskConical,name: "Washer Disinfectors",     desc: "Washer-disinfector cycle validation and temperature verification." },
-  ],
-};
+export const OT_EQUIPMENT: EquipmentItem[] = [
+  { icon: Wind,        name: "Anaesthesia Machine", desc: "Full anaesthesia workstation service — gas delivery, vaporiser and alarm checks." },
+  { icon: Settings,    name: "OT Table",            desc: "Operating table hydraulic, electrical and positioning system maintenance." },
+  { icon: Zap,         name: "OT Light",            desc: "Surgical light maintenance, alignment, intensity and lamp replacement." },
+  { icon: Zap,         name: "Cautery",             desc: "Electrosurgical unit (cautery) output testing and patient return electrode check." },
+  { icon: Monitor,     name: "Monitor",             desc: "OT-grade multiparameter patient monitor service and calibration." },
+  { icon: Wind,        name: "Surgical Suction",    desc: "Surgical suction unit service, vacuum testing and trap maintenance." },
+  { icon: Gauge,       name: "C-Arm",               desc: "C-Arm fluoroscopy unit service, image quality checks and safety testing." },
+];
+
+export const PICU_EQUIPMENT: EquipmentItem[] = [
+  { icon: Wind,        name: "Pediatric Ventilator",      desc: "Paediatric ventilator service — volume, pressure and flow calibration." },
+  { icon: Monitor,     name: "Monitor",                   desc: "Paediatric multiparameter monitor service and alarm verification." },
+  { icon: Activity,    name: "Infusion / Syringe Pumps",  desc: "Paediatric infusion and syringe pump calibration and repair." },
+  { icon: Heart,       name: "Defibrillator",             desc: "Paediatric defibrillator energy output testing and battery maintenance." },
+  { icon: Wind,        name: "HFNC",                      desc: "High Flow Nasal Cannula therapy device service and calibration." },
+  { icon: Wind,        name: "CPAP",                      desc: "CPAP device service and pressure calibration for paediatric use." },
+];
+
+export const CSSD_EQUIPMENT: EquipmentItem[] = [
+  { icon: Wind,        name: "Autoclave",           desc: "Autoclave validation, cycle testing, safety valve and door seal inspection." },
+  { icon: FlaskConical,name: "Washer Disinfector",  desc: "Washer-disinfector cycle validation, temperature verification and service." },
+  { icon: Zap,         name: "Ultrasonic Cleaner",  desc: "Ultrasonic cleaner performance testing and transducer inspection." },
+  { icon: Wind,        name: "Plasma Sterilizer",   desc: "Low-temperature plasma sterilizer validation and cycle monitoring." },
+  { icon: Settings,    name: "Sealing Machine",     desc: "Pouch sealing machine calibration, seal integrity and temperature checks." },
+];
+
+export const EMERGENCY_EQUIPMENT: EquipmentItem[] = [
+  { icon: Monitor,     name: "Patient Monitor",  desc: "Emergency department multiparameter monitor service and alarm verification." },
+  { icon: Wind,        name: "Ventilator",       desc: "Emergency ventilator service, calibration and breakdown repair." },
+  { icon: Heart,       name: "Defibrillator",    desc: "Defibrillator energy output testing, AED readiness and battery maintenance." },
+  { icon: FlaskConical,name: "Syringe Pump",     desc: "Emergency syringe pump calibration and alarm testing." },
+  { icon: Microscope,  name: "ABG",              desc: "Arterial Blood Gas analyser maintenance and calibration." },
+  { icon: Wind,        name: "HFNC",             desc: "High Flow Nasal Cannula therapy device service and calibration." },
+];
+
+export const DIAGNOSTIC_EQUIPMENT: EquipmentItem[] = [
+  { icon: Activity,    name: "ECG",     desc: "12-lead ECG machine calibration, lead testing and performance verification." },
+  { icon: Activity,    name: "TMT",     desc: "Treadmill stress test (TMT) system service — treadmill, ECG and software checks." },
+  { icon: Heart,       name: "Holter",  desc: "Holter monitor service, recorder calibration and software validation." },
+  { icon: Stethoscope, name: "Echo",    desc: "Echocardiography machine service, transducer testing and image quality checks." },
+  { icon: Activity,    name: "ABPM",    desc: "Ambulatory Blood Pressure Monitor calibration and accuracy verification." },
+];
+
+// Department tabs for ICU / Equipment pages
+export const DEPT_TABS = [
+  { key: "icu",        label: "ICU",         equipment: ICU_EQUIPMENT        },
+  { key: "nicu",       label: "NICU",        equipment: NICU_EQUIPMENT       },
+  { key: "ot",         label: "OT",          equipment: OT_EQUIPMENT         },
+  { key: "picu",       label: "PICU",        equipment: PICU_EQUIPMENT       },
+  { key: "cssd",       label: "CSSD",        equipment: CSSD_EQUIPMENT       },
+  { key: "emergency",  label: "Emergency",   equipment: EMERGENCY_EQUIPMENT  },
+  { key: "diagnostic", label: "Diagnostic",  equipment: DIAGNOSTIC_EQUIPMENT },
+];

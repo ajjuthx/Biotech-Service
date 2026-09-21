@@ -3,9 +3,13 @@ import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { waLink, WA, COMPANY } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Contact Urvi's Biomedical Services for medical equipment breakdown support, preventive maintenance and technical support. Based in Bhosari, Pune.",
+  title: "Contact — Biomedical Equipment Service Pune",
+  description: "Contact Urvi's Biomedical Services for medical equipment breakdown repair, preventive maintenance and technical support. B25, Basate Building, Bhosari, Pune 411039. +91 90212 61329.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Urvi's Biomedical Services, Pune",
+    description: "+91 90212 61329 | +91 86918 90677 | urvibiomedicalservices2705@gmail.com | Bhosari, Pune 411039.",
+  },
 };
 
 const CONTACT_WAYS = [

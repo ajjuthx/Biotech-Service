@@ -24,7 +24,7 @@ export function Hero() {
           <div className="hero-rise">
             <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary-light px-3.5 py-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
-              <span className="text-xs font-semibold text-secondary">{COMPANY.tagline}</span>
+              <span className="text-xs font-semibold text-secondary">{COMPANY.tagline} — Pune &amp; Chhatrapati Sambhajinagar</span>
             </div>
 
             <h1 className="mt-5 max-w-2xl text-4xl font-bold leading-[1.08] tracking-tight text-primary-dark sm:text-5xl">
@@ -34,8 +34,7 @@ export function Hero() {
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
               Professional biomedical engineering support for hospitals, ICUs, operating
-              theatres, clinics and diagnostic centres — breakdown repair,
-              preventive maintenance, installation and calibration.
+              theatres, clinics and diagnostic centres in{" "}<strong className="text-text">Pune</strong> and{" "}<strong className="text-text">Chhatrapati Sambhajinagar</strong>{" "}— breakdown repair, preventive maintenance, installation and calibration.
             </p>
 
             {/* WhatsApp CTAs */}

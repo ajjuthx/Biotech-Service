@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { FAQAccordion, type FAQItem } from "@/components/marketing/faq-accordion";
 import { CTASection } from "@/components/marketing/cta-section";
-import { WA } from "@/lib/config";
+import { WA, DOMAIN } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "FAQ",
-  description:
-    "Common questions about Urvi's Biomedical Services — breakdown response, preventive maintenance, ICU and OT equipment service, calibration and installation.",
+  title: "FAQ — Medical Equipment Service Pune",
+  description: "Common questions about medical equipment breakdown repair, preventive maintenance, ICU equipment service, OT equipment service and calibration in Pune.",
+  alternates: { canonical: "/faq" },
 };
 
 interface FAQCategory { category: string; items: FAQItem[]; }
@@ -18,7 +18,7 @@ const FAQ_DATA: FAQCategory[] = [
       { question: "What types of facilities do you service?", answer: "We provide biomedical equipment services to hospitals, nursing homes, clinics, diagnostic centres, ICUs, operating theatres, NICUs and CSSD departments in Pune and surrounding areas." },
       { question: "Where are you located and what areas do you cover?", answer: "We are based in Bhosari, Pune (B25, Basate Building, Mahadev Nagar-1, Sadguru Nagar, Bhosari, Pune – 411039). We service hospitals and healthcare facilities in Pune and nearby areas. Contact us to confirm availability for your location." },
       { question: "How do I request a service?", answer: "The fastest way is to WhatsApp us directly or call. For non-urgent requests you can also use our online Service Request page which opens a pre-filled WhatsApp message for our team." },
-      { question: "What are your contact details?", answer: "Phone: +91 90212 61329 / +91 86918 90677. Email: us809595@gmail.com. We are available Monday to Saturday, 9:00 AM – 7:00 PM." },
+      { question: "What are your contact details?", answer: "Phone: +91 90212 61329 / +91 86918 90677. Email: urvibiomedicalservices2705@gmail.com. We are available Monday to Saturday, 9:00 AM – 7:00 PM." },
     ],
   },
   {
@@ -71,8 +71,26 @@ const FAQ_DATA: FAQCategory[] = [
 ];
 
 export default function FAQPage() {
+
+  // FAQPage schema — enables Google rich snippets (accordion in search results)
+  const faqStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ_DATA.flatMap(({ items }) =>
+      items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      }))
+    ),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
+      />
       <section className="border-b border-border bg-surface">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <span className="text-sm font-semibold text-secondary">FAQ</span>

@@ -1,20 +1,38 @@
 /**
  * URVI'S BIOMEDICAL SERVICES — Site Config
- * Single source of truth for contact details and WhatsApp messages.
+ * Single source of truth for all contact details, domain, and WhatsApp messages.
+ *
+ * When your .in domain is ready → update DOMAIN below.
+ * Everything else (sitemap, robots, metadata, structured data) updates automatically.
  */
+
+// ← UPDATE THIS when your .in domain is live
+export const DOMAIN = "https://www.urvisbiomedical.in";
 
 export const WHATSAPP_NUMBER = "919021261329";
 
+// Service cities — shown in navbar, hero, footer, metadata
+export const SERVICE_CITIES = ["Pune", "Chhatrapati Sambhajinagar"];
+
 export const COMPANY = {
-  name:        "Urvi's Biomedical Services",
-  tagline:     "Your Trusted Biomedical Service Partner",
-  phone1:      "+91 90212 61329",
-  phone2:      "+91 86918 90677",
-  email:       "us809595@gmail.com",
-  address:     "B25, Basate Building, Mahadev Nagar-1, Behind Roshal Garden Hotel, Sadguru Nagar, Bhosari, Pune – 411039",
-  addressShort:"Bhosari, Pune – 411039",
-  hours:       "Mon–Sat, 9:00 AM – 7:00 PM",
-  serviceArea: "ICU • OT • Hospital Equipment",
+  name:         "Urvi's Biomedical Services",
+  tagline:      "Your Trusted Biomedical Service Partner",
+  phone1:       "+91 90212 61329",
+  phone1Raw:    "+919021261329",
+  phone2:       "+91 86918 90677",
+  phone2Raw:    "+918691890677",
+  email:        "urvibiomedicalservices2705@gmail.com",
+  address:      "B25, Basate Building, Mahadev Nagar-1, Behind Roshal Garden Hotel, Sadguru Nagar, Bhosari, Pune – 411039",
+  addressShort: "Bhosari, Pune – 411039",
+  city:         "Pune",
+  state:        "Maharashtra",
+  country:      "India",
+  pincode:      "411039",
+  hours:        "Mon–Sat, 9:00 AM – 7:00 PM",
+  hoursSchema:  "Mo-Sa 09:00-19:00",
+  serviceArea:  "ICU • OT • NICU • PICU • Hospital Equipment",
+  serviceCities: "Pune & Chhatrapati Sambhajinagar",
+  geo: { lat: 18.6298, lng: 73.8474 }, // Bhosari, Pune
 };
 
 export function waLink(message: string): string {

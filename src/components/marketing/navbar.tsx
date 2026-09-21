@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { waLink, WA, COMPANY } from "@/lib/config";
+import { waLink, WA, COMPANY, SERVICE_CITIES } from "@/lib/config";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -19,8 +19,7 @@ const NAV_LINKS = [
       { href: "/services/biomedical-consultancy",     label: "Biomedical Consultancy" },
     ],
   },
-  { href: "/icu-equipment", label: "ICU Equipment" },
-  { href: "/ot-equipment",  label: "OT Equipment" },
+  { href: "/icu-equipment", label: "Equipment" },
   { href: "/about",         label: "About Us" },
   { href: "/contact",       label: "Contact" },
 ];
@@ -43,7 +42,9 @@ export function Navbar() {
       <div className="hidden bg-primary-dark lg:block">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-1.5">
           <p className="text-xs text-white/55">
-            {COMPANY.tagline} — {COMPANY.serviceArea}
+            {COMPANY.tagline} &nbsp;|&nbsp;
+            <span className="text-white/75 font-medium">Serving {SERVICE_CITIES.join(" & ")}</span>
+            &nbsp;—&nbsp;{COMPANY.serviceArea}
           </p>
           <div className="flex items-center gap-4">
             <a href={`tel:${COMPANY.phone1.replace(/\s/g,"")}`}

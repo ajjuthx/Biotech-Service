@@ -4,9 +4,9 @@ import { CTASection } from "@/components/marketing/cta-section";
 import { waLink, WA, COMPANY } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description:
-    "Urvi's Biomedical Services — professional medical equipment service and support for hospitals, ICUs, OTs, clinics and diagnostic centres. Based in Bhosari, Pune.",
+  title: "About Urvi's Biomedical Services, Pune",
+  description: "Urvi's Biomedical Services — professional biomedical equipment service for hospitals, ICUs, OTs, clinics and diagnostic centres in Pune. Based in Bhosari, Pune 411039.",
+  alternates: { canonical: "/about" },
 };
 
 const WHY_ITEMS = [
@@ -31,7 +31,7 @@ export default function AboutPage() {
           <p className="mt-4 max-w-2xl text-lg text-text-muted">
             Urvi&apos;s Biomedical Services is a medical equipment service and support company
             dedicated to helping healthcare facilities maintain their equipment safely,
-            reliably and efficiently — based in Bhosari, Pune.
+            reliably and efficiently — based in Bhosari, Pune — serving Pune and Chhatrapati Sambhajinagar.
           </p>
         </div>
       </section>
@@ -85,7 +85,7 @@ export default function AboutPage() {
               <h3 className="text-lg font-bold text-primary-dark">Our Vision</h3>
               <p className="mt-2 text-sm leading-relaxed text-text-muted">
                 To become the most trusted biomedical equipment service partner for
-                healthcare institutions across Pune and Maharashtra.
+                healthcare institutions across Pune and Chhatrapati Sambhajinagar.
               </p>
             </div>
             <div className="rounded-[var(--radius-md)] border border-border bg-surface p-6 sm:col-span-2">

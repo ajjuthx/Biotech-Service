@@ -11,12 +11,12 @@ const SERVICES = [
 ];
 
 const EQUIPMENT = [
-  { href: "/icu-equipment",             label: "ICU Equipment" },
-  { href: "/ot-equipment",              label: "OT Equipment" },
-  { href: "/services?dept=emergency",   label: "Emergency Dept." },
-  { href: "/services?dept=nicu",        label: "NICU Equipment" },
-  { href: "/services?dept=diagnostic",  label: "Diagnostic Equipment" },
-  { href: "/services?dept=cssd",        label: "CSSD Equipment" },
+  { href: "/icu-equipment",   label: "ICU Equipment" },
+  { href: "/icu-equipment",   label: "NICU Equipment" },
+  { href: "/icu-equipment",   label: "OT Equipment" },
+  { href: "/icu-equipment",   label: "PICU Equipment" },
+  { href: "/icu-equipment",   label: "CSSD Equipment" },
+  { href: "/icu-equipment",   label: "Emergency & Diagnostic" },
 ];
 
 const QUICK = [
@@ -52,8 +52,7 @@ export function Footer() {
             </Link>
 
             <p className="mt-4 text-sm leading-relaxed text-white/55">
-              Your trusted partner for medical equipment service, breakdown support,
-              and preventive maintenance across ICU, OT and hospital departments.
+              Your trusted partner for medical equipment service, breakdown support, and preventive maintenance across ICU, NICU, OT, PICU, CSSD, Emergency and Diagnostic departments. Serving Pune &amp; Chhatrapati Sambhajinagar.
             </p>
 
             <ul className="mt-5 space-y-2.5">

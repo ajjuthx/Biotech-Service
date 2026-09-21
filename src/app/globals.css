@@ -128,25 +128,5 @@ h1, h2, h3, h4 {
 }
 
 /* WhatsApp floating button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 60;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #25d366;
-  color: white;
-  padding: 10px 16px 10px 12px;
-  border-radius: 50px;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-.whatsapp-float:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.5);
-}
+/* Mobile floating buttons — WhatsApp + Call (sm:hidden) */
+.z-60 { z-index: 60; }
