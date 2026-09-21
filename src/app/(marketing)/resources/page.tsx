@@ -6,9 +6,9 @@ import { CTASection } from "@/components/marketing/cta-section";
 import { WA } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Knowledge Base",
-  description:
-    "Technical guides and maintenance articles on medical equipment service, breakdown prevention and preventive maintenance from Urvi's Biomedical Services.",
+  title: "Medical Equipment Maintenance Guides | Knowledge Base",
+  description: "Technical guides on medical equipment maintenance, breakdown prevention, ICU equipment servicing and preventive maintenance from Urvi's Biomedical Services, Pune.",
+  alternates: { canonical: "/resources" },
 };
 
 const ARTICLES = [

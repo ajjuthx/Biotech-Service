@@ -4,8 +4,13 @@ import { CTASection } from "@/components/marketing/cta-section";
 import { WA } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: "Our Services",
-  description: "Browse Urvi's Biomedical Services — breakdown repair, preventive maintenance, installation, calibration and biomedical consultancy.",
+  title: "Medical Equipment Services in Pune",
+  description: "Browse all biomedical equipment services — breakdown repair, preventive maintenance, installation, calibration and consultancy for hospitals in Pune. Urvi's Biomedical Services, Bhosari.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Medical Equipment Services in Pune | Urvi's Biomedical Services",
+    description: "Breakdown repair, preventive maintenance, installation, calibration and biomedical consultancy for hospitals, ICUs and OTs in Pune.",
+  },
 };
 
 export default function ServicesPage() {

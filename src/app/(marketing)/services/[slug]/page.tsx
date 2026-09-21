@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ServiceProcess } from "@/components/services/service-process";
 import { FAQAccordion } from "@/components/marketing/faq-accordion";
 import { CTASection } from "@/components/marketing/cta-section";
-import { waLink, WA } from "@/lib/config";
+import { waLink, WA, DOMAIN, COMPANY } from "@/lib/config";
 
 export function generateStaticParams() {
   return DEMO_SERVICES.map((s) => ({ slug: s.slug }));
@@ -22,9 +22,13 @@ export async function generateMetadata({
   const service = getDemoServiceBySlug(slug);
   if (!service) return {};
   return {
-    title: service.name,
-    description: service.shortDescription,
-    openGraph: { title: service.name, description: service.shortDescription },
+    title: `${service.name} in Pune & Chhatrapati Sambhajinagar`,
+    description: `${service.shortDescription} Contact Urvi's Biomedical Services — ${COMPANY.phone1}.`,
+    alternates: { canonical: `/services/${slug}` },
+    openGraph: {
+      title: `${service.name} | Urvi's Biomedical Services, Pune`,
+      description: service.shortDescription,
+    },
   };
 }
 
@@ -39,8 +43,47 @@ export default async function ServiceDetailPage({
 
   const Icon = service.icon;
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home",     item: DOMAIN },
+          { "@type": "ListItem", position: 2, name: "Services", item: `${DOMAIN}/services` },
+          { "@type": "ListItem", position: 3, name: service.name, item: `${DOMAIN}/services/${service.slug}` },
+        ],
+      },
+      {
+        "@type": "Service",
+        name: service.name,
+        description: service.fullDescription,
+        provider: {
+          "@type": "LocalBusiness",
+          name: COMPANY.name,
+          telephone: COMPANY.phone1Raw,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Pune",
+            addressRegion: "Maharashtra",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Pune" },
+          { "@type": "City", name: "Chhatrapati Sambhajinagar" },
+        ],
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* Header */}
       <section className="border-b border-border bg-surface">
         <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
@@ -63,6 +106,9 @@ export default async function ServiceDetailPage({
                 {service.name}
               </h1>
               <p className="mt-3 max-w-xl text-text-muted">{service.shortDescription}</p>
+              <p className="mt-2 text-sm font-medium text-secondary">
+                Serving {COMPANY.serviceCities}
+              </p>
             </div>
 
             <a
@@ -71,7 +117,7 @@ export default async function ServiceDetailPage({
               rel="noopener noreferrer"
               className="btn-emergency inline-flex shrink-0 items-center gap-2 rounded-[var(--radius-sm)] px-5 py-2.5 text-sm"
             >
-              WhatsApp — Request This Service
+              🚨 WhatsApp — Request This Service
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
@@ -127,9 +173,9 @@ export default async function ServiceDetailPage({
             </div>
 
             <div className="rounded-[var(--radius-md)] border border-border bg-background p-6">
-              <h3 className="text-sm font-semibold text-text">Get a Quote</h3>
+              <h3 className="text-sm font-semibold text-text">Request This Service</h3>
               <p className="mt-2 text-sm text-text-muted">
-                Contact us directly for service-specific pricing and availability.
+                WhatsApp us with your equipment details — we respond quickly.
               </p>
               <a
                 href={waLink(WA.service(service.name))}
@@ -137,23 +183,20 @@ export default async function ServiceDetailPage({
                 rel="noopener noreferrer"
                 className="mt-4 flex items-center justify-center gap-2 w-full rounded-[var(--radius-sm)] bg-[#25d366] py-2.5 text-sm font-bold text-white hover:bg-[#1da851]"
               >
-                WhatsApp Us
+                WhatsApp Us →
+              </a>
+              <a
+                href={`tel:${COMPANY.phone1Raw}`}
+                className="mt-2 flex items-center justify-center gap-2 w-full rounded-[var(--radius-sm)] border border-border py-2.5 text-sm font-medium text-text hover:border-primary hover:text-primary"
+              >
+                📞 {COMPANY.phone1}
               </a>
             </div>
 
             <div className="rounded-[var(--radius-md)] border border-border bg-secondary-light p-6">
-              <h3 className="text-sm font-semibold text-primary-dark">Need something different?</h3>
-              <p className="mt-2 text-sm text-text-muted">
-                Tell us about your specific requirement — we&#39;ll help.
-              </p>
-              <a
-                href={waLink(WA.general)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 block text-center text-sm font-semibold text-secondary hover:underline"
-              >
-                Chat with us →
-              </a>
+              <h3 className="text-sm font-semibold text-primary-dark">Service area</h3>
+              <p className="mt-2 text-sm text-text-muted">{COMPANY.serviceCities}</p>
+              <p className="mt-1 text-xs text-text-subtle">{COMPANY.hours}</p>
             </div>
           </aside>
         </div>
@@ -161,11 +204,11 @@ export default async function ServiceDetailPage({
 
       <CTASection
         title="Ready to book this service?"
-        description="WhatsApp our biomedical team directly — fastest way to get support."
-        primaryLabel="WhatsApp — Book Service"
+        description={`WhatsApp our team directly — serving ${COMPANY.serviceCities}.`}
+        primaryLabel="🚨 WhatsApp — Book Service"
         primaryMsg={WA.service(service.name)}
-        secondaryLabel="Call Us"
         secondaryMsg={WA.general}
+        secondaryLabel="Call Us"
         emergency={false}
       />
     </>
