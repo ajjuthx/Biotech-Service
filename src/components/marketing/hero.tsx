@@ -47,16 +47,11 @@ export function Hero() {
                 🚨 Request Service on WhatsApp
               </a>
               <a
-                href={waLink(WA.pm)}
-                target="_blank" rel="noopener noreferrer"
+                href={`tel:${COMPANY.phone1Raw}`}
                 className="flex items-center justify-center gap-2 rounded-[var(--radius-sm)] border border-border bg-surface px-6 py-3 text-base font-medium text-text hover:border-primary hover:text-primary"
               >
-                📞 Call Now
-              </a>
-              <a href={`tel:${COMPANY.phone1.replace(/\s/g,"")}`}
-                className="flex items-center justify-center gap-2 text-sm font-medium text-text-muted hover:text-primary sm:ml-2">
-                <Phone className="h-4 w-4 text-secondary" />
-                {COMPANY.phone1}
+                <Phone className="h-5 w-5" />
+                Call Now
               </a>
             </div>
 
