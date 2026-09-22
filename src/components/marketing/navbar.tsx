@@ -14,7 +14,6 @@ const NAV_LINKS = [
     children: [
       { href: "/services/breakdown-repair",           label: "Breakdown & Repair" },
       { href: "/services/preventive-maintenance",     label: "Preventive Maintenance" },
-      { href: "/services/installation-commissioning", label: "Installation & Commissioning" },
       { href: "/services/calibration-testing",        label: "Calibration & Testing" },
       { href: "/services/biomedical-consultancy",     label: "Biomedical Consultancy" },
     ],
