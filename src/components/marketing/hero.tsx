@@ -44,7 +44,8 @@ export function Hero() {
               <a
                 href={waLink(WA.breakdown)}
                 target="_blank" rel="noopener noreferrer"
-                className="btn-emergency flex items-center justify-center gap-2 rounded-[var(--radius-sm)] px-6 py-3 text-base"
+                className="flex items-center justify-center gap-2 rounded-[var(--radius-sm)] px-6 py-3 text-base font-semibold text-white"
+                style={{ background: "#25d366" }}
               >
                 🚨 Request Service on WhatsApp
               </a>

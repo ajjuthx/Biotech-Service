@@ -15,9 +15,6 @@ export function ICUSection() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-              🏥 Hospital Equipment Service
-            </span>
             <h2 className="mt-3 text-3xl font-bold text-primary-dark sm:text-4xl">
               ICU • NICU • OT • PICU • CSSD &amp; more
             </h2>

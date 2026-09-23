@@ -189,7 +189,7 @@ function UrviBioLogo() {
       <div className="flex flex-col leading-none">
         <span className="text-xl font-black tracking-tight text-primary"
           style={{ fontWeight: 900, letterSpacing: "-0.03em" }}>
-          urvi&apos;s
+          Urvi&apos;s
         </span>
         <span className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-secondary">
           Biomedical Services
