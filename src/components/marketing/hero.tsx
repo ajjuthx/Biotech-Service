@@ -65,7 +65,13 @@ export function Hero() {
           </div>
 
           <div className="hero-rise mx-auto w-full max-w-sm lg:max-w-none" style={{animationDelay:"100ms"}} aria-hidden="true">
-            <BiomedicalIllustration />
+          <img
+  src="/hospital-animation.gif"
+  alt="Medical equipment service illustration"
+  className="w-full max-w-md mx-auto lg:max-w-none"
+  width={500}
+  height={400}
+/>
           </div>
         </div>
 
@@ -92,35 +98,3 @@ export function Hero() {
   );
 }
 
-function BiomedicalIllustration() {
-  return (
-    <svg viewBox="0 0 420 380" className="h-full w-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="60" y="140" width="300" height="210" rx="4" fill="#e8eef6"/>
-      <rect x="60" y="130" width="300" height="20" rx="3" fill="#1a4f8a" opacity="0.15"/>
-      {[90,140,190,240,290].map((x) =>
-        [165,210,255,300].map((y) => (
-          <rect key={`${x}-${y}`} x={x} y={y} width="24" height="18" rx="2" fill="#1a4f8a" opacity="0.12"/>
-        ))
-      )}
-      <rect x="180" y="295" width="60" height="55" rx="3" fill="#1a4f8a" opacity="0.2"/>
-      <rect x="195" y="295" width="28" height="55" rx="2" fill="#0e8c7e" opacity="0.15"/>
-      <rect x="197" y="90" width="10" height="32" rx="2" fill="#1a4f8a" opacity="0.7"/>
-      <rect x="188" y="99" width="28" height="10" rx="2" fill="#1a4f8a" opacity="0.7"/>
-      <polyline points="40,230 80,230 95,200 110,260 125,220 145,240 160,230 200,230 215,195 228,265 241,230 260,230"
-        stroke="#0e8c7e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7"/>
-      <line x1="260" y1="230" x2="380" y2="230" stroke="#0e8c7e" strokeWidth="2.5" opacity="0.3" strokeDasharray="4 4"/>
-      <rect x="310" y="55" width="80" height="60" rx="6" fill="#1a4f8a" opacity="0.12" stroke="#1a4f8a" strokeWidth="1.5"/>
-      <rect x="320" y="63" width="60" height="36" rx="3" fill="#1a4f8a" opacity="0.08"/>
-      <polyline points="325,81 333,81 337,72 341,90 345,78 349,81 357,81 361,69 365,88 369,81 375,81"
-        stroke="#0e8c7e" strokeWidth="1.5" fill="none" strokeLinecap="round" opacity="0.8"/>
-      <circle cx="350" cy="108" r="3" fill="#1a4f8a" opacity="0.4"/>
-      <circle cx="80" cy="72" r="22" fill="#e6f4f2" stroke="#0e8c7e" strokeWidth="1.5" opacity="0.6"/>
-      <path d="M80 58 L80 86 M67 65 L93 79 M67 79 L93 65" stroke="#0e8c7e" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-      <circle cx="80" cy="72" r="7" fill="white" stroke="#0e8c7e" strokeWidth="1.5" opacity="0.8"/>
-      <rect x="295" y="168" width="90" height="30" rx="15" fill="#1a4f8a" opacity="0.9"/>
-      <text x="340" y="188" textAnchor="middle" fill="white" fontSize="10" fontWeight="700" fontFamily="system-ui">PM Service</text>
-      <rect x="36" y="268" width="72" height="30" rx="15" fill="#e05c1a"/>
-      <text x="72" y="288" textAnchor="middle" fill="white" fontSize="10" fontWeight="700" fontFamily="system-ui">24/7 Support</text>
-    </svg>
-  );
-}
