@@ -34,7 +34,9 @@ export function Hero() {
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-text-muted sm:text-lg">
               Professional biomedical engineering support for hospitals, ICUs, operating
-              theatres, clinics and diagnostic centres in{" "}<strong className="text-text">Pune</strong> and{" "}<strong className="text-text">Chhatrapati Sambhajinagar</strong>{" "}— breakdown repair, preventive maintenance, installation and calibration.
+              theatres, clinics and diagnostic centres in <strong className="text-text">Pune</strong> and{" "}
+              <strong className="text-text">Chhatrapati Sambhajinagar</strong>.
+              Breakdown repair, preventive maintenance, installation and calibration.
             </p>
 
             {/* WhatsApp CTAs */}
@@ -97,4 +99,3 @@ export function Hero() {
     </section>
   );
 }
-
